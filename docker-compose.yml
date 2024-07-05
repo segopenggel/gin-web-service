@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  backend:
+    image: ubuntu:20.04 
+    ports:
+      - "81:80"
+    volumes:
+      - "./main:/app"
+    command: "bash -c /app"
+    environment:
+      DB_USER: root
+      DB_PASS: password
+      DB_NAME: testDb
+      DB_HOST: dbserver
+  dbserver:
+    image: mariadb:10.11.7-jammy
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testDb
+    volumes:
+      - "./person.sql:/docker-entrypoint-initdb.d/1.sql"
