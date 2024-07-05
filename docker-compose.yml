@@ -13,6 +13,7 @@ services:
       DB_PASS: password
       DB_NAME: testDb
       DB_HOST: dbserver
+      # GIN_MODE: release
   dbserver:
     image: mariadb:10.11.7-jammy
     environment:

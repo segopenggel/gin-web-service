@@ -12,6 +12,8 @@ func InitRouter() *gin.Engine {
 	router.GET("/ping", Pong)
 	router.GET("/async", Async)
 	router.GET("/redis/set", Set)
+	// auth.go
+	router.GET("/auth", Auth)
 	// person.go
 	router.GET("/person/add", AddPerson) // http://127.0.0.1:10086/person/add?firstname=a&lastname=b
 	router.GET("/person/get", GetPerson) // http://127.0.0.1:10086/person/get?id=1
